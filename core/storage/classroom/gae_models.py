@@ -76,8 +76,8 @@ class ClassroomModel(base_models.BaseModel):
     banner_size_in_bytes = datastore_services.IntegerProperty(indexed=False)
     # The index of the classroom.
     index = datastore_services.IntegerProperty(indexed=True)
-    # is_diagnostic_test_enabled = datastore_services.BooleanProperty(
-    # indexed=True, required=True)
+    is_diagnostic_test_enabled = datastore_services.BooleanProperty(
+        indexed=True, required=True)
 
     @staticmethod
     def get_deletion_policy() -> base_models.DELETION_POLICY:
@@ -140,7 +140,8 @@ class ClassroomModel(base_models.BaseModel):
         topic_id_to_prerequisite_topic_ids: Dict[str, List[str]],
         is_published: bool, thumbnail_filename: str, thumbnail_bg_color: str,
         thumbnail_size_in_bytes: int, banner_filename: str,
-        banner_bg_color: str, banner_size_in_bytes: int, index: int
+        banner_bg_color: str, banner_size_in_bytes: int, index: int,
+        is_diagnostic_test_enabled: bool
     ) -> ClassroomModel:
         """Creates a new ClassroomModel entry.
 
@@ -163,6 +164,7 @@ class ClassroomModel(base_models.BaseModel):
             banner_bg_color: str. Classroom's banner background color.
             banner_size_in_bytes: int. The banner size in bytes.
             index: int. The index of the classroom.
+            is_diagnostic_test_enabled: bool. Whether the Classroom has test.
 
         Returns:
             ClassroomModel. The newly created ClassroomModel instance.
@@ -190,7 +192,8 @@ class ClassroomModel(base_models.BaseModel):
             banner_filename=banner_filename,
             banner_bg_color=banner_bg_color,
             banner_size_in_bytes=banner_size_in_bytes,
-            index=index
+            index=index,
+            is_diagnostic_test_enabled=is_diagnostic_test_enabled
         )
         entity.update_timestamps()
         entity.put()
@@ -232,3 +235,4 @@ class ClassroomModel(base_models.BaseModel):
                 cls.deleted == False  # pylint: disable=singleton-comparison
             )
         ).get()
+

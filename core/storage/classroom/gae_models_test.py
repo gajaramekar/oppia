@@ -50,7 +50,8 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
             thumbnail_bg_color='transparent', thumbnail_size_in_bytes=1000,
             banner_filename='banner.png', banner_bg_color='transparent',
             banner_size_in_bytes=1000,
-            index=0
+            index=0,
+            is_diagnostic_test_enabled=False
         )
         self.classroom_model.update_timestamps()
         self.classroom_model.put()
@@ -63,7 +64,7 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
             'Learn physics through fun stories!', 
             'Start from the basic physics.', {}, False,
             'thumbnail.svg', 'transparent', 1000, 'banner.png',
-            'transparent', 1000, 0))
+            'transparent', 1000, 0, True))
 
         self.assertEqual(classroom_model_instance.name, 'physics')
         self.assertEqual(classroom_model_instance.url_fragment, 'physics')
@@ -90,6 +91,8 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
             classroom_model_instance.banner_size_in_bytes, 1000)
         self.assertEqual(
             classroom_model_instance.index, 0)
+        self.assertEqual(
+            classroom_model_instance.is_diagnostic_test_enabled, True)
 
     def test_get_export_policy_not_applicable(self) -> None:
         self.assertEqual(
@@ -116,7 +119,9 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
                 'banner_size_in_bytes': (
                     base_models.EXPORT_POLICY.NOT_APPLICABLE
                 ),
-                'index': base_models.EXPORT_POLICY.NOT_APPLICABLE
+                'index': base_models.EXPORT_POLICY.NOT_APPLICABLE,
+                'is_diagnostic_test_enabled': (
+                    base_models.EXPORT_POLICY.NOT_APPLICABLE)
             }
         )
 
@@ -181,7 +186,7 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
                     'Learn math through fun stories!',
                     'Start from the basic math.', {}, True,
                     'thumbnail.svg', 'transparent', 1000, 'banner.png',
-                    'transparent', 1000, 0
+                    'transparent', 1000, 0, True
                 )
 
         # Test generate_new_classroom_id method.
@@ -198,3 +203,4 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
                 )
             ):
                 classroom_model_cls.generate_new_classroom_id()
+
