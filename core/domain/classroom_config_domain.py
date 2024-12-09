@@ -62,7 +62,8 @@ class Classroom:
         is_published: bool,
         thumbnail_data: ImageData,
         banner_data: ImageData,
-        index: int
+        index: int,
+        is_diagnostic_test_enabled: bool
     ) -> None:
         """Constructs a Classroom domain object.
 
@@ -81,6 +82,7 @@ class Classroom:
                 thumbnail.
             banner_data: ImageData. Image data object for classroom banner.
             index: int. The index of the classroom.
+            is_diagnostic_test_enalbled: bool. Whether classroom has test.
         """
         self.classroom_id = classroom_id
         self.name = name
@@ -94,6 +96,7 @@ class Classroom:
         self.thumbnail_data = thumbnail_data
         self.banner_data = banner_data
         self.index = index
+        self.is_diagnostic_test_enabled = is_diagnostic_test_enabled
 
     @classmethod
     def from_dict(cls, classroom_dict: ClassroomDict) -> Classroom:

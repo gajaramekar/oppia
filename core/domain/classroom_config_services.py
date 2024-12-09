@@ -280,7 +280,8 @@ def create_new_classroom(
         classroom.banner_data.filename,
         classroom.banner_data.bg_color,
         classroom.banner_data.size_in_bytes,
-        classroom_count
+        classroom_count,
+        classroom.is_diagnostic_test_enabled
     )
 
 
@@ -326,7 +327,8 @@ def create_new_default_classroom(
         classroom.banner_data.filename,
         classroom.banner_data.bg_color,
         classroom.banner_data.size_in_bytes,
-        classroom.index
+        classroom.index,
+        classroom.is_diagnostic_test_enabled
     )
 
     return classroom

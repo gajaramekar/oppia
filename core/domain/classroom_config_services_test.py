@@ -83,7 +83,8 @@ class ClassroomServicesTests(test_utils.GenericTestBase):
             self.math_classroom.banner_data.filename,
             self.math_classroom.banner_data.bg_color,
             self.math_classroom.banner_data.size_in_bytes,
-            self.math_classroom.index
+            self.math_classroom.index,
+            self.math_classroom.is_diagnostic_test_enabled
         )
 
         self.physics_classroom_dict: classroom_config_domain.ClassroomDict = {
@@ -120,7 +121,8 @@ class ClassroomServicesTests(test_utils.GenericTestBase):
             self.physics_classroom.banner_data.filename,
             self.physics_classroom.banner_data.bg_color,
             self.physics_classroom.banner_data.size_in_bytes,
-            self.physics_classroom.index
+            self.physics_classroom.index,
+            self.physics_classroom.is_diagnostic_test_enabled
         )
 
     def test_get_classroom_by_id(self) -> None:
@@ -176,7 +178,8 @@ class ClassroomServicesTests(test_utils.GenericTestBase):
             chemistry_classroom.banner_data.filename,
             chemistry_classroom.banner_data.bg_color,
             chemistry_classroom.banner_data.size_in_bytes,
-            chemistry_classroom.index
+            chemistry_classroom.index,
+            chemistry_classroom.is_diagnostic_test_enabled
         )
         classroom_url_fragment = (
             classroom_config_services.
