@@ -235,4 +235,3 @@ class ClassroomModel(base_models.BaseModel):
                 cls.deleted == False  # pylint: disable=singleton-comparison
             )
         ).get()
-

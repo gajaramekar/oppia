@@ -203,4 +203,3 @@ class ClassroomModelUnitTest(test_utils.GenericTestBase):
                 )
             ):
                 classroom_model_cls.generate_new_classroom_id()
-
