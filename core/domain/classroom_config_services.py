@@ -103,7 +103,8 @@ def get_classroom_from_classroom_model(
         classroom_model.topic_list_intro,
         classroom_model.topic_id_to_prerequisite_topic_ids,
         classroom_model.is_published, thumbnail_data, banner_data,
-        classroom_model.index
+        classroom_model.index,
+        classroom_model.is_diagnostic_test_enabled
     )
 
 
@@ -306,7 +307,8 @@ def create_new_default_classroom(
         is_published=feconf.DEFAULT_CLASSROOM_PUBLICATION_STATUS,
         thumbnail_data=classroom_config_domain.ImageData('', '', 0),
         banner_data=classroom_config_domain.ImageData('', '', 0),
-        index=classroom_count
+        index=classroom_count,
+        is_diagnostic_test_enabled=False
     )
 
     classroom.require_valid_name(name)

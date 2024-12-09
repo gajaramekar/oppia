@@ -82,7 +82,7 @@ class Classroom:
                 thumbnail.
             banner_data: ImageData. Image data object for classroom banner.
             index: int. The index of the classroom.
-            is_diagnostic_test_enalbled: bool. Whether classroom has test.
+            is_diagnostic_test_enabled: bool. Whether the Classroom has test.
         """
         self.classroom_id = classroom_id
         self.name = name
@@ -120,7 +120,8 @@ class Classroom:
             classroom_dict['is_published'],
             ImageData.from_dict(classroom_dict['thumbnail_data']),
             ImageData.from_dict(classroom_dict['banner_data']),
-            classroom_dict['index']
+            classroom_dict['index'],
+            classroom_dict['is_diagostic_test_enabled']
         )
 
     def to_dict(self) -> ClassroomDict:

@@ -244,7 +244,7 @@ class ClassroomServicesTests(test_utils.GenericTestBase):
                 'topic_id_1': ['topic_id_2', 'topic_id_3'],
                 'topic_id_2': [],
                 'topic_id_3': []
-            }, True, self.dummy_thumbnail_data, self.dummy_banner_data, 2
+            }, True, self.dummy_thumbnail_data, self.dummy_banner_data, 2, True
         )
         self.assertIsNone(
             classroom_config_services.get_classroom_by_id(
