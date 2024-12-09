@@ -76,6 +76,8 @@ class ClassroomModel(base_models.BaseModel):
     banner_size_in_bytes = datastore_services.IntegerProperty(indexed=False)
     # The index of the classroom.
     index = datastore_services.IntegerProperty(indexed=True)
+    #is_diagnostic_test_enabled = datastore_services.BooleanProperty(
+    #    indexed=True, required=True)
 
     @staticmethod
     def get_deletion_policy() -> base_models.DELETION_POLICY:
