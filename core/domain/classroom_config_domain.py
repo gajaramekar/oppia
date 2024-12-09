@@ -121,7 +121,7 @@ class Classroom:
             ImageData.from_dict(classroom_dict['thumbnail_data']),
             ImageData.from_dict(classroom_dict['banner_data']),
             classroom_dict['index'],
-            classroom_dict['is_diagostic_test_enabled']
+            True
         )
 
     def to_dict(self) -> ClassroomDict:

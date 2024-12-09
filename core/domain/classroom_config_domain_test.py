@@ -49,7 +49,7 @@ class ClassroomDomainTests(test_utils.GenericTestBase):
                 'topic_id_1': ['topic_id_2', 'topic_id_3'],
                 'topic_id_2': [],
                 'topic_id_3': []
-            }, True, self.dummy_thumbnail_data, self.dummy_banner_data, 0
+            }, True, self.dummy_thumbnail_data, self.dummy_banner_data, 0, True
         )
         self.classroom_dict: classroom_config_domain.ClassroomDict = {
             'classroom_id': 'classroom_id',
