@@ -108,7 +108,9 @@ class ClassroomModel(base_models.BaseModel):
             'banner_filename': base_models.EXPORT_POLICY.NOT_APPLICABLE,
             'banner_bg_color': base_models.EXPORT_POLICY.NOT_APPLICABLE,
             'banner_size_in_bytes': base_models.EXPORT_POLICY.NOT_APPLICABLE,
-            'index': base_models.EXPORT_POLICY.NOT_APPLICABLE
+            'index': base_models.EXPORT_POLICY.NOT_APPLICABLE,
+            'is_diagnostic_test_enabled': (
+                    base_models.EXPORT_POLICY.NOT_APPLICABLE)
         })
 
     @classmethod
